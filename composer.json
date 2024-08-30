@@ -1,5 +1,5 @@
 {
-  "require": {
-    "php": "^7.4 || ^8.0"
-  }
+  "name": "your-project-name",
+  "description": "A simple PHP project",
+  "require": {}
 }
