@@ -1,6 +1,10 @@
 {
-  "name": "simple-php-app",
-  "require": {
-    "php": "^8.0"
-  }
+    "name": "your-project-name",
+    "description": "A minimal PHP project",
+    "require": {},
+    "config": {
+        "platform": {
+            "php": "8.0.0"
+        }
+    }
 }
