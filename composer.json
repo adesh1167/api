@@ -1,10 +1,16 @@
 {
-    "name": "your-project-name",
-    "description": "A minimal PHP project",
-    "require": {},
-    "config": {
-        "platform": {
-            "php": "8.0.0"
+    "name": "adeshchat/heroku",
+    "description": "Adeshchat Backend For Expo",
+    "autoload": {
+        "psr-4": {
+            "Adeshchat\\Heroku\\": "src/"
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "adesh1167",
+            "email": "adesh1167@gmail.com"
+        }
+    ],
+    "require": {}
 }
