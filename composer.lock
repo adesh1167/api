@@ -1,18 +1,16 @@
 {
-    "name": "your-project-name",
-    "description": "A minimal PHP project",
-    "require": {},
-    "config": {
-        "platform": {
-            "php": "8.0.0"
-        }
-    },
-    "repositories": [],
     "packages": [],
     "packages-dev": [],
     "platform": {
         "php": "8.0.0"
     },
     "content-hash": "e0e5c5ec0372b84b7283fba1dff9c039",
-    "hash": "6bfc0b9ec79aafab9b10dc548f1ad0a3"
+    "hash": "7f12f46a0b6b154cc915a83f27dc7f9d",
+    "metadata": {
+        "composer": {
+            "json-schema-version": "2.0.0",
+            "composer-version": "2.2.24"
+        }
+    },
+    "lockfile-version": 2
 }
