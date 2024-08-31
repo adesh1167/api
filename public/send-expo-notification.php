@@ -36,6 +36,7 @@ $payload = [
     'title' => $title,
     'body' => $message,
     'data' => $payload ? (object) $payload : (object) [],
+    'channelId' => 'NOTIFICATION_CHANNEL',
 ];
 
 // Initialize cURL
