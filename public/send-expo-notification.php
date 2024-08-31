@@ -24,6 +24,7 @@ if (json_last_error() !== JSON_ERROR_NONE || !isset($data['expoPushToken']) || !
 $expoPushToken = $data['expoPushToken'];
 $message = $data['message'];
 $title = $data['title'];
+$payload = $data['data'];
 
 // Endpoint for Expo push notifications
 $expoUrl = 'https://exp.host/--/api/v2/push/send';
@@ -34,6 +35,7 @@ $payload = [
     'sound' => 'default',
     'title' => $title,
     'body' => $message,
+    'data' => $payload,
 ];
 
 // Initialize cURL
