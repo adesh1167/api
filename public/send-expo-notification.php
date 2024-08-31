@@ -35,7 +35,7 @@ $payload = [
     'sound' => 'default',
     'title' => $title,
     'body' => $message,
-    'data' => $payload ? $payload : [],
+    'data' => $payload ? (object) $payload : (object) [],
 ];
 
 // Initialize cURL
