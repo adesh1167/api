@@ -29,6 +29,10 @@ if(isset($access_code) && !empty($access_code)){
         $response['status'] = 'invalid';
         $response['error'] = 'Access Code Invalid';
     }
+} else{
+        $response['status'] = 'empty';
+        $response['error'] = 'Enter a valid Access Code';
+    
 }
 
 exit(json_encode($response));
