@@ -13,8 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-$response = [];
 $access_code = $_GET['access-code'];
+$response = [
+    'access-code' => $access_code
+];
 
 $access_codes = [
     'sporty0924880au2',
