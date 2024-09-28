@@ -14,10 +14,7 @@ $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
 $access_code = $_GET['access-code'];
-$response = [
-    'access-code' => $access_code,
-    'access-code-from-input' => $data['access-code']
-];
+$response = [];
 
 $access_codes = [
     'sporty0924880au2',
