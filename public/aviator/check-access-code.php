@@ -22,7 +22,7 @@ $access_codes = [
 ];
 
 if(isset($access_code) && !empty($access_code)){
-    if(in_array(str_to_lower($access_code), $access_codes)){
+    if(in_array(strtolower($access_code), $access_codes)){
         $response['status'] = 'valid';
         $response['message'] = 'Access Code Valid. Server overload, try again';
     } else{
