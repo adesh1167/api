@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Images</title>
+</head>
+<body>
+	<iframe
+		title="ShowMojo"
+		id="showMojo"
+		onload="init()"
+		style="display: none;"
+	></iframe>
+	<div id="images">
+		<div class="title" >Images</div>
+	</div>
+	<div id="loading">
+		<img src="loading.svg" width="200">
+	</div>	
+
+  <script>
+  
+  		const url = prompt("Enter Url");
+  		showMojo.src = `showinghero.php?url=${url}`;
+  		const images = document.getElementById("images");
+	  
+	  const downloadImage = async function(src, button){
+	  	
+	  	const imageUrl = src.replace("Watermark_Property", "PropertyFull");
+	  	const imageUrlRight = imageUrl.split("PropertyFull")[1];
+	  	const imageName = imageUrlRight.split(".")[0];
+	  	//alert(imageUrl);
+	  	//button.innerHTML = imageUrl;
+	  	try {
+		  	const response = await fetch(`fetch.php?url=${imageUrl}&type=image`);
+		  	if (!response.ok) {
+		  		throw new Error(response.responseText);
+		  	}
+		  	const blob = await response.blob();
+		  	const link = document.createElement('a');
+		  	const url = URL.createObjectURL(blob);
+		  	link.href = url;
+		  	// Set the download attribute with a filename
+		  	link.download = `house-${imageName}.jpg`;
+		  	
+		  	// Append the link to the document
+		  	document.body.appendChild(link);
+		  	
+		  	// Trigger a click on the link to start the download
+		  	link.click();
+		  	
+		  	// Clean up - remove the link and revoke the object URL
+		  	document.body.removeChild(link);
+		  	URL.revokeObjectURL(url);
+	  	} catch (error) {
+	  		alert('Error downloading the image:', error.message);
+	  	}
+	  }
+    
+    function init(){
+    	loading.style.display = "none";
+   		const brandedImages = showMojo.contentDocument.body.getElementsByClassName("img-mar-c");
+		   [...brandedImages].map((item, index)=>{
+		   	    const button = document.createElement("button");
+		   	    button.innerHTML = "Download";
+		   	    const src = item.src;
+		   	    if(!src) return;
+		   	    
+		   	    const wrapper = document.createElement("div");
+		   	    wrapper.className = "wrapper";
+		   	    
+		   	    const image = document.createElement("img");
+		   	    image.src = src;
+		   	    
+		   	    wrapper.appendChild(image);
+		   	    wrapper.appendChild(button);
+		   	    
+		   	    images.appendChild(wrapper);
+		   	    button.onclick = ()=>downloadImage(src, button);
+		   	    //item.parentNode.appendChild(button);
+		   	    //item.parentNode.href = "#";
+		   	    //setTimeout(()=>downloadImage(src), index * 2000);
+   		});
+   		
+		const style = document.createElement("style");
+		style.textContent = `
+			.wrapper{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 10px;
+			}
+			.wrapper img{
+			width: 60%;
+			}
+				flex: 1;
+			}
+			.gallery-item{
+				display: none !IMPORTANT;
+			}
+			.js-listing-gallery-v1, #footer{
+				display: none !IMPORTANT;
+			}
+		`;
+		//showMojo.contentDocument.head.appendChild(style)
+		document.head.appendChild(style);
+    }
+  </script>
+  
+  <style type="text/css">
+  	body{
+  		padding: 0;
+  		margin: 0;
+  		font-family:sans-serif;
+  	}
+	
+	.title{
+	font-size: 22px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	padding: 20px;
+	}
+	  button{
+	  	flex: 1;
+	  }
+	  #loading{
+	  	position: absolute;
+	  	top: 0;
+	  	left: 0;
+	  	height: 100%;
+	  	width: 100%;
+	  	display: flex;
+	  	justify-content: center;
+	  	align-items: center;
+	  }
+	  #images{
+	  	width: 100%;
+	  	background: #ddd;
+	  	min-height: 100vh;
+	  }
+	  iframe{
+		height: 100vh;
+		width: 100%;
+		border: none;	  
+	  }
+  </style>
+</body>
+</html>
