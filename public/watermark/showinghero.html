@@ -33,7 +33,7 @@
 	  	//alert(imageUrl);
 	  	//button.innerHTML = imageUrl;
 	  	try {
-		  	const response = await fetch(`fetch.php?url=${imageUrl}&type=image`);
+		  	const response = await fetch(`showinghero.php?url=${imageUrl}&type=image`);
 		  	if (!response.ok) {
 		  		throw new Error(response.responseText);
 		  	}
