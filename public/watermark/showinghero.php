@@ -16,7 +16,7 @@ if(isset($_GET["type"])){
     ];
 
     $context = stream_context_create($options);
-    $data = @file_get_contents("https://showinghero.com/property/managetenantproperty/Mzc3MzI=", false, $context);
+    $data = @file_get_contents($url, false, $context);
 
     if ($data === FALSE) {
         echo "Error fetching the URL.";
