@@ -71,7 +71,8 @@
 		   	    wrapper.className = "wrapper";
 		   	    
 		   	    const image = document.createElement("img");
-		   	    image.src = src;
+				const imageUrl = src.replace("Watermark_Property", "PropertyFull");
+		   	    image.src = imageUrl;
 		   	    
 		   	    wrapper.appendChild(image);
 		   	    wrapper.appendChild(button);
