@@ -19,6 +19,7 @@ $response = [];
 $access_codes = [
     'sporty0924880au2',
     'sporty09248o301c',
+    'bet9ja101624ua2f0'
 ];
 
 if(isset($access_code) && !empty($access_code)){
