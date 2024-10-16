@@ -17,8 +17,8 @@ $access_code = $_GET['access-code'];
 $response = [];
 
 $access_codes = [
-    'sporty0924880au2',
-    'sporty09248o301c',
+    'sporty0924880au2' => [],
+    'sporty09248o301c' => [],
     'bet9ja101624ua2f0' => [
         'country' => 'Nigeria',
         'bookie' => 'Bet9ja',
@@ -26,7 +26,7 @@ $access_codes = [
 ];
 
 if(isset($access_code) && !empty($access_code)){
-    if(in_array(strtolower($access_code), $access_codes)){
+    if(isset($access_codes[strtolower($access_code)]){
         $response['status'] = 'valid';
         $response['data'] = $access_codes[$access_code];
         $response['message'] = 'Access Code Valid. Server overload, try again';
