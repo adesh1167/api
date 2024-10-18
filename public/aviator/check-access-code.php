@@ -25,6 +25,10 @@ $access_codes = [
         'country' => 'Ghana',
         'bookie' => 'SportyBet',
     ],
+    'sporty101824gok1u' => [
+        'country' => 'Nigeria',
+        'bookie' => 'SportyBet',
+    ],
     'bet9ja101624ua2f0' => [
         'country' => 'Nigeria',
         'bookie' => 'Bet9ja',
