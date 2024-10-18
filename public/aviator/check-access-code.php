@@ -38,7 +38,7 @@ $access_codes = [
 if(isset($access_code) && !empty($access_code)){
     if(isset($access_codes[strtolower($access_code)])){
         $response['status'] = 'valid';
-        $response['data'] = $access_codes[$access_code];
+        $response['data'] = $access_codes[strtolower($access_code)];
         $response['message'] = 'Access Code Valid. Redirecting';
     } else{
         $response['status'] = 'invalid';
